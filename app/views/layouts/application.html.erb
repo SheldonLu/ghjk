@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title%>
+  <%= stylesheet_link_tag "application" %>
+  <%= controller_stylesheet_link_tag %>
+  <meta charset='utf-8' />
+  <link rel="shortcut icon" href="<%= asset_path("big_logo.png") %>" />
+  <%= csrf_meta_tags %>
+</head>
+
+<body data-offset="50">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <h3>
+        <a href="/"><%= image_tag("text_logo.png") %></a>
+      </h3>
+      <%= render_list :class => "nav" do |li|
+        li << link_to('视频', hot_articles_path )
+        li << link_to('图片', recent_articles_path)
+        li << link_to('上传', new_article_path )
+      end %>
+      <%= render "common/user_nav" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= notice_message %>
+  <div id="main" class="container-fluid">
+    <%= yield %>
+  </div>
+</div>
+
+<%= javascript_include_tag "application" %>
+<%= controller_javascript_include_tag %>
+
+</body>
+</html>
