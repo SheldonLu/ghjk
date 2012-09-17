@@ -1,15 +1,28 @@
-<h2>Sign in</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+<div class="content">
+    <div class="box">
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <fieldset>
+        <legend><%= t("common.login") %></legend>
+        <%= f.input :login, :input_html => { :style => "width:180px;" } %>
+        <%= f.input :password, :input_html => { :style => "width:180px;" } %>
+        <% if devise_mapping.rememberable? -%>
+        <div class="control-group checkbox optional">
+          <label class="checkbox optional control-label"></label>
+          <div class="controls">
+            <div class="inputs-list"><label for="user_remember_me"><%= f.check_box :remember_me, :style => "width:auto;" %> <%= t("common.remember_me") %></label></div>
+          </div>
+        </div>
+        <% end %>
+        <div class="form-actions">
+          <%= f.submit t("common.login"), :class => "btn btn-primary", 'data-disable-with' => t("common.logining") %>
+        </div>
+      </fieldset>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Sign in" %>
+</div>
+<div class="sidebar">
+  <div class="box">
+    <h2>还没有帐号？</h2>
+    <%= render :partial => "devise/shared/links" %>
   </div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+</div>
