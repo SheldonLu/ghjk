@@ -9,14 +9,14 @@
 				<%= simple_form_for @article do |f| %>
 				<fieldset>
 					<legend>添加图片</legend>		
-					<%= f.input :picture, :blank => :flase %>
+					<%= f.input :picture, :blank => :false %>
 					<%= f.input :tags, :input_html => {:class => "span6"} %>
 					<%= f.input :content, :as => :text, :input_html => { 
 						:rows => 6, 
 						:style => "width: 450px",
 						:item_wrapper_class => 'inline'
 					} %>
-					<%= f.input :anonymous, :as => :boolean, :item_wrapper_class => 'inline' %>
+					<%= f.input :anonymous, :as => :boolean, :label => false, :inline_label => true %>
 					<div class="form-actions">
 						<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
 						<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>
@@ -35,7 +35,7 @@
 						:style => "width: 450px",
 						:item_wrapper_class => 'inline'
 					} %>
-					<%= f.input :anonymous, :as => :boolean, :boolean_style => :nested %>
+					<%= f.input :anonymous, :as => :boolean, :label => false, :inline_label => true %>
 					<div class="form-actions">
 						<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
 						<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>

@@ -31,6 +31,7 @@
         video: "视频"
         tags: "标签"
         title: "标题"
+        anonymous: "匿名发表"
       reply:
         body: "回复内容"
       post:

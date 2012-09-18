@@ -28,14 +28,20 @@ class ArticlesController < ApplicationController
   end
 
   def recent
-    @articles = Article.recent
-    render :action => "index"
+    # @articles = Article.new
+    # render :action => "index"
+    respond_to do |format|
+      format.js
+    end
   end
 
   def hot
     # high_likes
-    @articles = Article.by_week.high_replies
-    render :action => "index"
+    # @articles = Article.by_week.high_replies
+    # render :action => "index"
+    respond_to do |format|
+      format.js
+    end
   end
   
   def reply

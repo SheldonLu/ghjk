@@ -62,4 +62,10 @@
     hot_locations: "热门城市"
     replied_at: 回复于
     replies_count: "回复"
-    likes_count: 喜欢
+    likes_count: "喜欢"
+    recent: "最新"
+    hot: "热门"
+    12_hour: "12小时"
+    24_hour: "24小时"
+    1_day: "一天"
+    1_week: "一周"

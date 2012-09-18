@@ -17,8 +17,8 @@
         <a href="/"><%= image_tag("text_logo.png") %></a>
       </h3>
       <%= render_list :class => "nav" do |li|
-        li << link_to('视频', hot_articles_path )
-        li << link_to('图片', recent_articles_path)
+        li << link_to('视频', articles_path )
+        li << link_to('图片', articles_path)
         li << link_to('上传', new_article_path )
       end %>
       <%= render "common/user_nav" %>
