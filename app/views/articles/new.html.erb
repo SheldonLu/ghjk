@@ -1,49 +1,49 @@
 <div class="content">
 	<div class="box">
-			<ul class="nav nav-tabs" id="myTab">
-			  <li class="active"><a href="#picture">图片</a></li>
-			  <li><a href="#vedio">视频</a></li>
-			</ul>
-			<div class="tab-content">
-			  <div class="tab-pane active" id="picture">
-							<%= simple_form_for @article do |f| %>
-					  		<fieldset>
-									<legend>添加图片</legend>		
-										<%= f.input :picture, :blank => :flase %>
-										<%= f.input :tags, :input_html => {:class => "span6"} %>
-										<%= f.input :content, :as => :text, :input_html => { 
-											:rows => 6, 
-											:style => "width: 450px",
-											:item_wrapper_class => 'inline'
-										} %>
-										<%= f.input :anonymous, :as => :boolean, :item_wrapper_class => 'inline' %>
-										<div class="form-actions">
-											<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
-											<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>
-										</div>
-					  		</fieldset>
-							<% end %>
-			  </div>
-			  <div class="tab-pane" id="vedio">
-							<%= simple_form_for @article, :validate => true do |f| %>
-					  		<fieldset>
-									<legend>添加视频</legend>		
-										<%= f.input :video, :as => :url, :input_html => { :class => "span6" } %>
-										<%= f.input :tags, :input_html => { :class => "span6" } %>
-										<%= f.input :content, :as => :text, :input_html => { 
-											:rows => 6, 
-											:style => "width: 450px",
-											:item_wrapper_class => 'inline'
-										} %>
-										<%= f.input :anonymous, :as => :boolean, :item_wrapper_class => 'inline' %>
-										<div class="form-actions">
-											<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
-											<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>
-										</div>
-					  		</fieldset>
-							<% end %>
-			  </div>
-			</div>		
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a href="#picture">图片</a></li>
+			<li><a href="#vedio">视频</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="picture">
+				<%= simple_form_for @article do |f| %>
+				<fieldset>
+					<legend>添加图片</legend>		
+					<%= f.input :picture, :blank => :flase %>
+					<%= f.input :tags, :input_html => {:class => "span6"} %>
+					<%= f.input :content, :as => :text, :input_html => { 
+						:rows => 6, 
+						:style => "width: 450px",
+						:item_wrapper_class => 'inline'
+					} %>
+					<%= f.input :anonymous, :as => :boolean, :item_wrapper_class => 'inline' %>
+					<div class="form-actions">
+						<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
+						<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>
+					</div>
+				</fieldset>
+				<% end %>
+			</div>
+			<div class="tab-pane" id="vedio">
+				<%= simple_form_for @article, :validate => true do |f| %>
+				<fieldset>
+					<legend>添加视频</legend>		
+					<%= f.input :video, :as => :url, :input_html => { :class => "span6" } %>
+					<%= f.input :tags, :input_html => { :class => "span6" } %>
+					<%= f.input :content, :as => :text, :input_html => { 
+						:rows => 6, 
+						:style => "width: 450px",
+						:item_wrapper_class => 'inline'
+					} %>
+					<%= f.input :anonymous, :as => :boolean, :boolean_style => :nested %>
+					<div class="form-actions">
+						<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
+						<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>
+					</div>
+				</fieldset>
+				<% end %>
+			</div>
+		</div>		
 	</div>
 </div>
 <div class="sidebar">
