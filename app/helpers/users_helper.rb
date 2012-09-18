@@ -20,6 +20,8 @@ module UsersHelper
       return image_tag("avatar/#{size}.png", :class => "uface")
     end
 
+    # 如果使用gem 'carrierwave-mongoid'
+    # 则为 if user[:avatar_filename].blank?
     if user[:avatar].blank?
       default_url = asset_path("avatar/#{size}.png")
       #img_src = "#{Setting.gravatar_proxy}/avatar/#{user.email_md5}.png?s=#{width}&d=404"
