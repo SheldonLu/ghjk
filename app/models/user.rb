@@ -8,7 +8,7 @@ class User
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -39,6 +39,9 @@ class User
   field :replies_count, :type => Integer, :default => 0
 
   mount_uploader :avatar, AvatarUploader
+
+  validates_presence_of :login
+  validates_uniqueness_of :login, :email, :case_sensitive => false
 
   ## Confirmable
   # field :confirmation_token,   :type => String
