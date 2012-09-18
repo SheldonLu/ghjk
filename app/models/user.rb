@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -54,6 +56,15 @@ class User
 
   has_many :articles, :dependent => :destroy
   has_many :replies, :dependent => :destroy
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      self.any_of({:login => /^#{Regexp.escape(login)}$/i}, {:email => /^#{Regexp.escape(login)}$/i}).first
+    else
+      super
+    end
+  end
 
   # 是否是管理员
   def admin?
