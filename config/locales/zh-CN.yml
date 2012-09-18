@@ -27,8 +27,10 @@
       article:
         content: "正文"
         email: "邮箱"
-        picture: "真相"
+        picture: "图片"
+        video: "视频"
         tags: "标签"
+        title: "标题"
       reply:
         body: "回复内容"
       post:

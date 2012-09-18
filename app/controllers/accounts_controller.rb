@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # coding: utf-8
 class AccountsController < Devise::RegistrationsController
   def edit

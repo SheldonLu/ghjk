@@ -8,12 +8,13 @@ class Article
   include Mongoid::CounterCache
   include Mongoid::Likeable
 
+  # 标题
+  # field :title
   # 内容
   field :content
   # 标签
   field :tags
-  field :picture
-  field :music
+  mount_uploader :picture, PhotoUploader
   field :video
   # 是否禁止评论
   #field :disable_reply, :type => Boolean, :default => false
@@ -32,5 +33,7 @@ class Article
   scope :high_replies, desc(:replies_count, :_id)
   scope :no_reply, where(:replies_count => 0)
   scope :popular, where(:likes_count.gt => 5)
+
+  # validates_presence_of :title
   
 end
