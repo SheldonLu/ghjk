@@ -18,6 +18,8 @@ class AccountsController < Devise::RegistrationsController
     resource.email = resource_params[:email] if self.resource.email.blank?
 
     # code from Devise
+    #p resource_params
+
     if resource.update_with_password(resource_params)
       if is_navigational_format?
         if resource.respond_to?(:pending_reconfirmation?) && resource.pending_reconfirmation?

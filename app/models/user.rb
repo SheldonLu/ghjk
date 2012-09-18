@@ -44,8 +44,15 @@ class User
 
   mount_uploader :avatar, AvatarUploader
 
-  validates_presence_of :login
+  validates_presence_of :login, :email
   validates_uniqueness_of :login, :email, :case_sensitive => false
+
+  index :login => 1
+  index :email => 1
+  index :location => 1
+
+  attr_accessor :password_confirmation
+  attr_accessible :login, :location, :tagline, :avatar, :password, :password_confirmation
 
   ## Confirmable
   # field :confirmation_token,   :type => String
@@ -95,6 +102,26 @@ class User
       when :member then true
       else false
     end
+  end
+
+  # 注册邮件提醒
+  after_create :send_welcome_mail
+  def send_welcome_mail
+    # TODO
+    #UserMailer.delay.welcome(self.id)
+  end
+
+  def update_with_password(params={})
+    if !params[:current_password].blank? or !params[:password].blank? or !params[:password_confirmation].blank?
+      super
+    else
+      params.delete(:current_password)
+      self.update_without_password(params)
+    end
+  end
+
+  def self.find_by_email(email)
+    where(:email => email).first
   end
 
 
