@@ -1,5 +1,7 @@
 #encoding: utf-8
 
+require "digest/md5"
+
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -13,6 +15,8 @@ class User
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
+
+  field :email_md5
 
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -67,6 +71,11 @@ class User
     else
       super
     end
+  end
+
+  def email=(val)
+    self.email_md5 = Digest::MD5.hexdigest(val || "")
+    self[:email] = val
   end
 
   # 是否是管理员

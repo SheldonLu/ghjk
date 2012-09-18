@@ -10,7 +10,7 @@
         <%= render_list :class => "dropdown-menu" do |li|
           li << link_to('我的主页', user_path(current_user.login) )
           unless params[:controller].match(/cpanel/)
-            li << link_to('个人资料设置', edit_user_registration_path)
+            li << link_to('个人资料修改', edit_user_registration_path)
             #li << link_to('我的收藏', favorites_user_path(current_user.login))
             li << link_to('后台', "/cpanel") if admin?
           end
