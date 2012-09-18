@@ -11,7 +11,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(params[:article])
     #tags = @article.tags.split(" ")
-    @article.user_id = current_user.id
+    unless current_user.blank?
+      @article.user_id = current_user.id
+    end
 
     if @article.save
       redirect_to(article_path(@article.id), :notice => "article 创建成功")

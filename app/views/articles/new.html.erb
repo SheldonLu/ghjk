@@ -8,7 +8,7 @@
 			  <div class="tab-pane active" id="picture">
 							<%= simple_form_for @article do |f| %>
 					  		<fieldset>
-									<legend>添加搞笑图片</legend>		
+									<legend>添加图片</legend>		
 										<%= f.input :picture, :blank => :flase %>
 										<%= f.input :tags, :input_html => {:class => "span6"} %>
 										<%= f.input :content, :as => :text, :input_html => { 
@@ -16,6 +16,7 @@
 											:style => "width: 450px",
 											:item_wrapper_class => 'inline'
 										} %>
+										<%= f.input :anonymous, :as => :boolean, :item_wrapper_class => 'inline' %>
 										<div class="form-actions">
 											<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
 											<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>
@@ -24,9 +25,9 @@
 							<% end %>
 			  </div>
 			  <div class="tab-pane" id="vedio">
-							<%= simple_form_for @article do |f| %>
+							<%= simple_form_for @article, :validate => true do |f| %>
 					  		<fieldset>
-									<legend>添加搞笑视频</legend>		
+									<legend>添加视频</legend>		
 										<%= f.input :video, :as => :url, :input_html => { :class => "span6" } %>
 										<%= f.input :tags, :input_html => { :class => "span6" } %>
 										<%= f.input :content, :as => :text, :input_html => { 
@@ -34,6 +35,7 @@
 											:style => "width: 450px",
 											:item_wrapper_class => 'inline'
 										} %>
+										<%= f.input :anonymous, :as => :boolean, :item_wrapper_class => 'inline' %>
 										<div class="form-actions">
 											<%= link_to(t("common.cancel"), @article.id.blank? ? root_path : article_path(@article), :class => "btn")%>
 											<%= f.submit t("common.upload"), :class => "btn btn-primary", 'data-disable-with' => t("common.uploading") %>

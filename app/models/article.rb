@@ -19,7 +19,7 @@ class Article
   # 是否禁止评论
   #field :disable_reply, :type => Boolean, :default => false
   # 是否匿名发布
-  field :anonymous_public, :type => Boolean, :default => false
+  field :anonymous, :type => Boolean, :default => false
 
   # 评论数 统计
   has_many :replies, :dependent => :destroy
