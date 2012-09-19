@@ -1,6 +1,47 @@
 <% if @articles.present?  %>
 	<% @articles.each do |article|  %>
-		<li><img src="assets/image_1.jpg" width="200" height="283"><p>1</p></li>
+		<li>
+          <div class="itemBox">
+            <div class="itemInfo">
+              <a target="_blank" title="心理医师的杯子" href="http://qing.weibo.com/tj/898af892330029dz.html" class="pic">
+                <img alt="心理医师的杯子" src="http://ww2.sinaimg.cn/mw205/898af892jw1dwfkpo88jej.jpg">
+              </a>
+              <div class="author">
+                <a target="_blank" title="向立志的365天" href="http://qing.weibo.com/carey1985" class="avatar">
+                  <img alt="向立志的365天" src="http://tp3.sinaimg.cn/2307586194/180/39997969539/1">
+                </a>
+                <a target="_blank" title="向立志的365天" href="http://qing.weibo.com/carey1985">向立志的365天</a>
+              </div>
+              <!--喜欢-->
+              <a onclick="xDB &amp;&amp; xDB.likeSpc('898af892330029dz',this,'2307586194','898af892330029dz');xblogLog &amp;&amp; xblogLog('B_0013_01_04_1614685840_心理学','1614685840');return false;" id="like" href="javascript:;" class="like " from="qing" style="width: 60px;" likelabel="false">
+                <i class="icon"></i>
+                <span>喜欢</span>
+              </a>
+              <!--/喜欢-->
+            </div>
+            <div class="itemDesc">
+              <h4>此处填写正文</h4>
+              <div class="tags">
+                <a title="心理学" onclick="xblogLog &amp;&amp; xblogLog('B_0013_01_03_1614685840_心理学','1614685840');" target="_blank" href="http://qing.weibo.com/tag/%E5%BF%83%E7%90%86%E5%AD%A6">心理学</a>
+                <a title="心情" onclick="xblogLog &amp;&amp; xblogLog('B_0013_01_03_1614685840_心理学','1614685840');" target="_blank" href="http://qing.weibo.com/tag/%E5%BF%83%E6%83%85">心情</a>
+                <a title="文字" onclick="xblogLog &amp;&amp; xblogLog('B_0013_01_03_1614685840_心理学','1614685840');" target="_blank" href="http://qing.weibo.com/tag/%E6%96%87%E5%AD%97">文字</a>
+              </div>
+              <div class="itemAttr" style="bottom: 0px;">
+                <a onclick="xDB &amp;&amp; xDB.showCommentSpc('898af892330029dz', '2307586194', this );return false;" title="评论" class="item_replay" blog_id="898af892330029dz" from="qing" href="javascript:void(0)"><em>(8)</em></a>
+                <a onclick="xDB &amp;&amp; xDB.likeSpc('898af892330029dz',this,'2307586194','898af892330029dz');xblogLog &amp;&amp; xblogLog('B_0013_01_04_1614685840_心理学','1614685840');return false;" title="喜欢" class="item_like " from="qing" href="javascript:;"><em>(6)</em></a>
+              </div>
+            </div>
+            <div class="itemCmt">
+              <div id="comment_0_898af892330029dz" class="replyBox" style="">
+                <textarea id="replyInput_0_898af892330029dz" style="font-family: Microsoft Yahei; border-style: solid; border-width: 1px; word-wrap: break-word; font-size: 13px; line-height: 19px;"></textarea>
+                <div class="btnWrap">
+                  <a blog_id="898af892330029dz" href="javascript:void(0)" onclick="xDB &amp;&amp; xDB.reply('898af892330029dz',this);xblogLog &amp;&amp; xblogLog('B_0013_01_06_1614685840_心理学','1614685840');" from="qing" class="btn">
+                    <span>评论</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+		</li>
 	<% end %>
 <% end %>
 
