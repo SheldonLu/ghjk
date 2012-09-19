@@ -1,7 +1,7 @@
 $ ->
 	$('#myTab a').click (e) ->
 		e.preventDefault()
-		$(@).tab('show')
+		$(@).tab('show') 
 
 	$('#posttab a').click ->
 		$('ul.nav-tabs li.active').removeClass('active')
@@ -9,3 +9,4 @@ $ ->
 
 	$('#posttab .dropdown a').click ->
 		$('#posttab .dropdown').addClass('active')
+
