@@ -6,3 +6,11 @@
 #= require rails.validations
 #= require bootstrap
 #= require_self
+
+$ ->
+	$('#tiles li').wookmark
+    autoResize: true,
+    container: $('#pmain'), 
+    offset: 2, 
+    itemWidth: 210 
+  
