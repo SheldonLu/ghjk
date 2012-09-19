@@ -1,4 +1,4 @@
-<div id="post" role="main2">
+<div id="pmain" role="pmain">
     <ul id="tiles">
         <!-- These are our grid blocks -->
         <li><img src="assets/image_1.jpg" width="200" height="283"><p>1</p></li>
@@ -38,9 +38,9 @@
   $(document).ready(new function() {
       // Prepare layout options.
       // Call the layout function.
-    $('#tiles2 li').wookmark({
+    $('#tiles li').wookmark({
       autoResize: true, // This will auto-update the layout when the browser window is resized.
-      container: $('#main2'), // Optional, used for some extra CSS styling
+      container: $('#pmain'), // Optional, used for some extra CSS styling
       offset: 2, // Optional, the distance between grid items
       itemWidth: 210 // Optional, the width of a grid item
     });

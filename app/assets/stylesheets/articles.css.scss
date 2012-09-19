@@ -1,5 +1,5 @@
 .pbox {
-  padding:10px;
+	padding:10px;
   margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -8,5 +8,30 @@
   -moz-box-shadow: 0 0px 2px rgba(0,0,0,.1);
   box-shadow: 0 0px 2px rgba(0,0,0,.05);
 }
+/**
+ * Grid container
+ */
+#tiles {
+ 	list-style-type: none;
+	position: relative; /** Needed to ensure items are laid out relative to this container **/
+	margin: 0;
+}
 
+/**
+ * Grid items
+ */
+#tiles li {
+ 	width: 200px;
+ 	background-color: #ffffff;
+ 	border: 1px solid #dedede;
+ 	-moz-border-radius: 2px;
+ 	-webkit-border-radius: 2px;
+ 	border-radius: 2px;
+	display: none; /** Hide items initially to avoid a flicker effect **/
+	cursor: pointer;
+	padding: 4px;
+}
 
+#tiles li img {
+	display: block;
+}
