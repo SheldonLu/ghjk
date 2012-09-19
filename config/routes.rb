@@ -19,6 +19,8 @@ Ghjk::Application.routes.draw do
       #get :popular
       get :hot
       get :recent
+      get :video
+      get :pic
       # get :reply2
       #get :feed
       #post :preview

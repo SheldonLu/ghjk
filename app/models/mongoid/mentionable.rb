@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 module Mongoid
   module Mentionable
     extend ActiveSupport::Concern

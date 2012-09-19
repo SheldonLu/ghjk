@@ -30,17 +30,30 @@ class ArticlesController < ApplicationController
   def recent
     # @articles = Article.new
     # render :action => "index"
-    respond_to do |format|
-      format.js
-    end
   end
 
   def hot
     # high_likes
     # @articles = Article.by_week.high_replies
     # render :action => "index"
+    @articles = Article.all.paginate(:page => params[:page],:per_page => 1)
+    p @articles
+  end
+
+  def index
+    @articles = Article.all.paginate(:page => params[:page],:per_page => 1)
+    p @articles
+  end
+
+  def video
     respond_to do |format|
-      format.js
+      format.html
+    end  
+  end
+
+  def pic
+    respond_to do |format|
+      format.html
     end
   end
   

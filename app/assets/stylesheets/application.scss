@@ -13,9 +13,19 @@ body {
   //font-size: 15px;
 }
 
+$width: 1080px;
+
 .navbar-fixed-top {
-  position:static;right:0;left:0;margin-bottom:20px;
+  .container { 
+    width:$width;
+  }
+
+  position:static;
+  right:0;
+  left:0;
+  margin-bottom:20px;
   .badge-inverse { background:#666;}
+
 
   .search-query {
     margin-bottom: 0;
@@ -42,7 +52,7 @@ body {
   }
 }
 
-.container { width:960px; }
+.container { width:$width;}
 .container-fluid { padding:0; }
 .container-fluid > .sidebar {
   position:absolute;
@@ -52,9 +62,9 @@ body {
   width: 240px;
 }
 
-.container-fluid > .content, .container-fluid > .posts {
+.container-fluid > .content, .container-fluid > .pbox {
   margin-left:0;
-  margin-right: 260px;
+  margin-right: 220px;
 }
 
 a.label:hover { text-decoration: none; color:#FFF;}

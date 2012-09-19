@@ -1,5 +1,5 @@
 <div class="pbox">
-  <ul class="nav nav-tabs" id="ptab">
+  <ul class="nav nav-tabs nav-pills" id="ptab">
     <li class="dropdown active">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("common.hot") %><span class="caret"></span></a>
       <ul class="dropdown-menu">
@@ -21,7 +21,10 @@
       <%= link_to t("common.recent"), recent_articles_path, :remote => true, :data => {:toggle=>"ptab"} %>
     </li>
   </ul>
-  <div id="post_content">
-      <%= render "hot" %>
+  <div id="pcontent">
+      <ul id="tiles"><ul>
+      <div id="loader">
+        <div id="loaderCircle"></div>
+      </div>
   </div>
 </div>

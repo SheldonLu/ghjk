@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # coding: utf-8
 # 软删除
 module Mongoid
