@@ -1,29 +1,27 @@
-<div class="posts">
-  <div class="post">
-    <ul class="nav nav-tabs" id="posttab">
-      <li class="dropdown active">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("common.hot") %><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li>
-            <%= link_to t("common.12_hour"), hot_articles_path, :remote => true, :data => {:toggle => "tab"} %>
-          </li>
-          <li>
-            <%= link_to t("common.24_hour"), hot_articles_path, :remote => true, :data => {:toggle => "tab"} %>
-          </li>
-          <li>
-            <%= link_to t("common.1_day"), hot_articles_path, :remote => true, :data => {:toggle => "tab"} %>
-          </li>
-          <li>
-            <%= link_to t("common.1_week"), hot_articles_path, :remote => true, :data => {:toggle => "tab"} %>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <%= link_to t("common.recent"), recent_articles_path, :remote => true, :data => {:toggle=>"tab"} %>
-      </li>
-    </ul>
-    <div id="post_content" class="active">
-        <%= render "recent" %>
-    </div>
+<div class="pbox">
+  <ul class="nav nav-tabs" id="ptab">
+    <li class="dropdown active">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("common.hot") %><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to t("common.12_hour"), hot_articles_path, :remote => true, :data => {:toggle => "ptab"} %>
+        </li>
+        <li>
+          <%= link_to t("common.24_hour"), hot_articles_path, :remote => true, :data => {:toggle => "ptab"} %>
+        </li>
+        <li>
+          <%= link_to t("common.1_day"), hot_articles_path, :remote => true, :data => {:toggle => "ptab"} %>
+        </li>
+        <li>
+          <%= link_to t("common.1_week"), hot_articles_path, :remote => true, :data => {:toggle => "ptab"} %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <%= link_to t("common.recent"), recent_articles_path, :remote => true, :data => {:toggle=>"ptab"} %>
+    </li>
+  </ul>
+  <div id="post_content">
+      <%= render "hot" %>
   </div>
 </div>

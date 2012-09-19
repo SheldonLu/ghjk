@@ -3,10 +3,10 @@ $ ->
 		e.preventDefault()
 		$(@).tab('show') 
 
-	$('#posttab a').click ->
+	$('#ptab a').click ->
 		$('ul.nav-tabs li.active').removeClass('active')
 		$(@).parent().addClass('active')
 
-	$('#posttab .dropdown a').click ->
-		$('#posttab .dropdown').addClass('active')
+	$('#ptab .dropdown a').click ->
+		$('#ptab .dropdown').addClass('active')
 
