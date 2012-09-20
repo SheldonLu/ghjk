@@ -1,4 +1,5 @@
 var handler = null;
+// 默认第一页数据已经加载，从第二页开始
 var page = 1;
 var isLoading = false;
 var getURL = 'http://localhost:3000/articles/hot'
@@ -52,6 +53,8 @@ function loadData() {
   });
 };
 
+var flag = true;
+
 /**
  * Receives data from the API, creates HTML for images and updates the layout
  */
@@ -67,6 +70,19 @@ function onLoadData(data) {
   
   // Apply layout.
   applyLayout();
+  if(flag) {
+    $('.itemInfo .like').live({
+       mouseenter: function(){
+         $(this).addClass("like_hover");
+         $(this).find("span").html("+1");
+       },
+       mouseleave: function(){
+         $(this).removeClass("like_hover");
+         $(this).find("span").html("喜欢");
+       }
+     });
+    flag = false;
+  }
 };
 
 $(document).ready(new function() {
