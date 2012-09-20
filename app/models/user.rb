@@ -124,5 +124,23 @@ class User
     where(:email => email).first
   end
 
+  # 收藏东西
+  def like(likeable)
+    return false if likeable.blank?
+    return false if likeable.liked_by_user?(self)
+    likeable.push(:liked_user_ids, self.id)
+    likeable.inc(:likes_count, 1)
+    likeable.touch
+  end
+
+  # 取消收藏
+  def unlike(likeable)
+    return false if likeable.blank?
+    return false if not likeable.liked_by_user?(self)
+    likeable.pull(:liked_user_ids, self.id)
+    likeable.inc(:likes_count, -1)
+    likeable.touch
+  end
+
 
 end

@@ -37,4 +37,7 @@ Ghjk::Application.routes.draw do
       get :favorites
     end
   end
+
+  resources :likes
+
 end
