@@ -1,5 +1,4 @@
 #encoding: utf-8
-
 # coding: utf-8
 
 class ArticlesController < ApplicationController
@@ -36,12 +35,12 @@ class ArticlesController < ApplicationController
     # high_likes
     # @articles = Article.by_week.high_replies
     # render :action => "index"
-    @articles = Article.all.paginate(:page => params[:page],:per_page => 1)
+    @articles = Article.all.paginate(:page => params[:page],:per_page => 10)
     p @articles
   end
 
   def index
-    @articles = Article.all.paginate(:page => params[:page],:per_page => 1)
+    @articles = Article.all.paginate(:page => params[:page],:per_page => 10)
     p @articles
   end
 

@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # coding: utf-8
 # 在数据库中的配置信息
 # 这里有存放首页,Wiki 等页面 HTML

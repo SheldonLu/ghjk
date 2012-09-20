@@ -1,5 +1,7 @@
 //@import "common";
 
+$gobal_img_w: 415px;
+
 .pbox {
   //@include better_transparentize(white, .7);
   margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
@@ -23,7 +25,7 @@
  * Grid items
  */
 #tiles li {
- 	width: 200px;
+ 	width: $gobal_img_w;
  	margin: 0 auto;
  	background-color: #ffffff;
  	border: 1px solid #dedede;
@@ -66,7 +68,7 @@ a:link, a:visited {
   margin-bottom: 10px;
   margin-right: 12px;
   overflow: hidden;
-  width: 200px;
+  width: $gobal_img_w;
   .pic {
     display: block;
     position: relative;
@@ -111,7 +113,7 @@ a:link, a:visited {
     }
     img {
       display: block;
-      width: 200px;
+      width: $gobal_img_w;
     }
     .author {
       display: none;
@@ -122,7 +124,7 @@ a:link, a:visited {
       line-height: 33px;
       padding: 0 10px;
       position: absolute;
-      width: 182px;
+      width: $gobal_img_w - 18px;
       a, a:link {
         @include info_author;
       }
