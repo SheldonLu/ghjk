@@ -1,7 +1,7 @@
-@import "common";
+//@import "common";
 
 .pbox {
-  @include better_transparentize(white, .7);
+  //@include better_transparentize(white, .7);
   margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -44,4 +44,222 @@
   height: 16px;
   text-align: center;
   padding: 25px 0 25px 0;
+}
+
+a:link, a:visited {
+  color: #A9A9A9;
+  font-family: "Microsoft Yahei";
+  text-decoration: none;
+}
+@mixin info_author{
+  color: #FFFFFF;
+  display: inline-block;
+  float: left;
+  height: 33px;
+  line-height: 33px;
+  overflow: hidden;
+  width: 154px;
+}
+
+.itemBox {
+  border: 1px solid #DDDDDD;
+  margin-bottom: 10px;
+  margin-right: 12px;
+  overflow: hidden;
+  width: 200px;
+  .pic {
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+
+  .itemAttr {
+    padding: 0 0 8px;
+    text-align: right;
+    a, a:link {
+      background: url("nsidebar_bg.png") no-repeat scroll 0 0 transparent;
+      color: #A9A9A9;
+      display: inline-block;
+      font-family: Arial;
+      font-size: 12px;
+      height: 15px;
+      line-height: 15px;
+      margin-right: 5px;
+      padding-left: 13px;
+      vertical-align: middle;
+    }
+    a.item_replay {
+      background-position: -200px -117px;
+      margin-right: 4px;
+      padding-left: 16px;
+    }
+
+    a.item_like {
+      background: url("icon_love.png") no-repeat scroll -2px 0 transparent;
+      padding-left: 17px;
+    }
+  }
+
+  .itemInfo {
+    background: none repeat scroll 0 0 #4D4D4D;
+    position: relative;
+
+    &:hover{
+      .author, .like {
+        display: block;
+      }
+    }
+    img {
+      display: block;
+      width: 200px;
+    }
+    .author {
+      display: none;
+      background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+      bottom: 0;
+      height: 33px;
+      left: 0;
+      line-height: 33px;
+      padding: 0 10px;
+      position: absolute;
+      width: 182px;
+      a, a:link {
+        @include info_author;
+      }
+
+      a:hover {
+        @include info_author;
+        text-decoration: underline;
+      }
+      a.avatar,
+      a.avatar:link {
+        float: left;
+        height: 20px;
+        margin: 6px 6px 0 0;
+        overflow: hidden;
+        width: auto;
+      }
+      a.avatar img {
+        height: 20px;
+        width: 20px;
+      }
+    }
+    .like {
+      background: none repeat scroll 0 0 #E64531;
+      color: #FFFFFF;
+      display: none;
+      font-size: 12px;
+      height: 26px;
+      line-height: 26px;
+      overflow: hidden;
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      width: 60px;
+      .icon {
+        background: url("icon_like.png") repeat scroll 0 0 transparent;
+        display: inline-block;
+        height: 14px;
+        margin: 0 2px 0 10px;
+        vertical-align: -2px;
+        width: 16px;
+      }
+      span {
+        cursor: pointer;
+        display: inline-block;
+      }
+    }
+
+    .like_hover{
+      background: none repeat scroll 0 0 #FFFFFF;
+      span {
+        color: #E64531;
+        font-size: 16px;
+      }
+      .icon{
+        background: url("icon_like.png") repeat scroll 0 -14px transparent;
+      }
+    }
+  }
+
+  .itemDesc {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 8px 12px 0;
+    h4 {
+      color: #333333;
+      font-size: 12px;
+      font-weight: normal;
+      padding-bottom: 3px;
+      a, a:link {
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+    .tags {
+      font-size: 0;
+      margin-top: 5px;
+      a,a:link {
+        background: none repeat scroll 0 0 #F1F1F1;
+        color: #999999;
+        display: inline-block;
+        font-size: 12px;
+        height: 22px;
+        line-height: 22px;
+        margin: 0 5px 5px 0;
+        overflow: hidden;
+        padding: 0 7px;
+      }
+
+      a:hover {
+        background: none repeat scroll 0 0 #84BCE2;
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .itemCmt {
+    background: none repeat scroll 0 0 #EEEEEE;
+    overflow: hidden;
+    textarea {
+      border: 1px solid #DDDDDD;
+      border-style: solid;
+      border-width: 1px;
+      display: block;
+      font-family: Microsoft Yahei;
+      font-size: 13px;
+      line-height: 19px;
+      height: 34px;
+      margin: 9px auto 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 2px;
+      resize: none;
+      width: 176px;
+      word-wrap: break-word;
+      &:focus{
+        //
+      }
+    }
+    .btnWrap {
+      overflow: hidden;
+      padding: 0 9px 8px;
+    }
+    a.btn {
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: none repeat scroll 0 0 #84BCE2;
+      color: #FFFFFF;
+      float: right;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      text-decoration: none;
+      width: 40px;
+    }
+    a.btn span {
+      cursor: pointer;
+    }
+  }
 }

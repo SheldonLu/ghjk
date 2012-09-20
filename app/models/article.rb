@@ -7,6 +7,7 @@ class Article
   include Mongoid::Timestamps
   include Mongoid::CounterCache
   include Mongoid::Likeable
+  include Mongoid::WillPaginate
 
   # 标题
   # field :title
