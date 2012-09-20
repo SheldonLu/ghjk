@@ -2,7 +2,8 @@
 
 # coding: utf-8
 class RepliesController < ApplicationController
-
+  # TODO
+  #load_and_authorize_resource :reply
   before_filter :find_article
 
   def find_article

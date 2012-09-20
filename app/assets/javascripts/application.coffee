@@ -22,7 +22,6 @@ window.App =
     likeable_id = $el.data("id")
     likes_count = parseInt($el.data("count"))
     if $el.data("state") != "liked"
-      alert "liked"
       $.ajax
         url : "/likes"
         type : "POST"
@@ -34,7 +33,6 @@ window.App =
       $el.data('count', likes_count)
       App.likeableAsLiked(el)
     else
-      alert "unliked"
       $.ajax
         url : "/likes/#{likeable_id}"
         type : "DELETE"
@@ -47,12 +45,12 @@ window.App =
         $('span',el).text("喜欢")
       else
         $('span',el).text("#{likes_count}人喜欢")
-      $("i.icon",el).attr("class","icon small_like")
+      $(el).attr("class","icon item_like")
     false
 
-    likeableAsLiked : (el) ->
-      likes_count = $(el).data("count")
-      $(el).data("state","liked").attr("title", "取消喜欢")
-      $('span',el).text("#{likes_count}人喜欢")
-      $("i.icon",el).attr("class","icon small_liked")
+  likeableAsLiked : (el) ->
+    likes_count = $(el).data("count")
+    $(el).data("state","liked").attr("title", "取消喜欢")
+    $('span',el).text("#{likes_count}人喜欢")
+    $(el).attr("class","icon item_liked")
 

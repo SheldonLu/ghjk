@@ -1,6 +1,6 @@
 <% if @articles.present?  %>
 	<% @articles.each do |article|  %>
-		<li>
+		<li id="article_<%= article.id %>">
           <div class="itemBox">
             <div class="itemInfo">
               <a target="_blank" title="" href="<%=article_path(article.id)%>" class="pic">
@@ -28,7 +28,9 @@
                 <a title="文字" onclick="xblogLog &amp;&amp; xblogLog('B_0013_01_03_1614685840_心理学','1614685840');" target="_blank" href="http://qing.weibo.com/tag/%E6%96%87%E5%AD%97">文字</a>
               </div>
               <div class="itemAttr" style="bottom: 0px;">
-                <a onclick="xDB &amp;&amp; xDB.showCommentSpc('898af892330029dz', '2307586194', this );return false;" title="评论" class="item_replay" blog_id="898af892330029dz" from="qing" href="javascript:void(0)"><em>(8)</em></a>
+                <a onclick="xDB.showCommentSpc('898af892330029dz', '2307586194', this );return false;" title="评论" class="item_replay" href="javascript:void(0)">
+                  <em><%= article.replies_count %></em>
+                </a>
                 <!--<a onclick="xDB &amp;&amp; xDB.likeSpc('898af892330029dz',this,'2307586194','898af892330029dz');xblogLog &amp;&amp; xblogLog('B_0013_01_04_1614685840_心理学','1614685840');return false;" title="喜欢" class="item_like " from="qing" href="javascript:;">-->
                   <!--<em>(6)</em>-->
                 <!--</a>-->
@@ -36,12 +38,20 @@
               </div>
             </div>
             <div class="itemCmt">
-              <div id="comment_0_898af892330029dz" class="replyBox" style="">
-                <textarea id="replyInput_0_898af892330029dz" style="font-family: Microsoft Yahei; border-style: solid; border-width: 1px; word-wrap: break-word; font-size: 13px; line-height: 19px;"></textarea>
-                <div class="btnWrap">
-                  <a blog_id="898af892330029dz" href="javascript:void(0)" onclick="xDB &amp;&amp; xDB.reply('898af892330029dz',this);xblogLog &amp;&amp; xblogLog('B_0013_01_06_1614685840_心理学','1614685840');" from="qing" class="btn">
-                    <span>评论</span></a>
-                </div>
+              <!--<div id="comment_0_898af892330029dz" class="replyBox" style="">-->
+                <!--<textarea id="replyInput_0_898af892330029dz" style="font-family: Microsoft Yahei; border-style: solid; border-width: 1px; word-wrap: break-word; font-size: 13px; line-height: 19px;"></textarea>-->
+                <!--<div class="btnWrap">-->
+                  <!--<a blog_id="898af892330029dz" href="javascript:void(0)" onclick="xDB &amp;&amp; xDB.reply('898af892330029dz',this);xblogLog &amp;&amp; xblogLog('B_0013_01_06_1614685840_心理学','1614685840');" from="qing" class="btn">-->
+                    <!--<span>评论</span></a>-->
+                <!--</div>-->
+              <!--</div>-->
+              <div id="comment_0_898af892330029d1z" class="">
+                <%= form_for(Reply.new, :remote => true,:url => article_replies_path(article)) do |f| %>
+                  <%= f.text_area :content,:class => "topic_editor span10", :rows => "4", :tabindex => "1" %>
+                  <div class="submit_buttons">
+                    <button type="submit" id="btn_reply" class="btn btn-primary" tabindex="2">评论</button><br />
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

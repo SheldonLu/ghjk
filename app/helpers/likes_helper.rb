@@ -8,12 +8,14 @@ module LikesHelper
     return "" if likeable.blank?
 
     label = "#{likeable.likes_count}人喜欢"
+    class_type = 'icon item_like'
     if likeable.likes_count == 0
       label = "喜欢"
     end
     if opts[:cache].blank? && current_user && likeable.liked_by_user?(current_user)
       title = "取消喜欢"
       state = "liked"
+      class_type = 'icon item_liked'
       #icon = content_tag("i", "", :class => "icon small_liked")
     else
       title = "喜欢"
@@ -23,6 +25,6 @@ module LikesHelper
     like_label = raw " <span>#{label}</span>"
     link_to(like_label,"#",:title => title, :rel => "twipsy", 'data-count' => likeable.likes_count,
             'data-state' => state,'data-type' => likeable.class,'data-id' => likeable.id,
-            :class => 'item_like', :onclick => "return App.likeable(this);")
+            :class => class_type, :onclick => "return App.likeable(this);")
   end
 end
