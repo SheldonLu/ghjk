@@ -27,13 +27,10 @@
                 <a title="心情" onclick="xblogLog &amp;&amp; xblogLog('B_0013_01_03_1614685840_心理学','1614685840');" target="_blank" href="http://qing.weibo.com/tag/%E5%BF%83%E6%83%85">心情</a>
                 <a title="文字" onclick="xblogLog &amp;&amp; xblogLog('B_0013_01_03_1614685840_心理学','1614685840');" target="_blank" href="http://qing.weibo.com/tag/%E6%96%87%E5%AD%97">文字</a>
               </div>
-              <div class="itemAttr" style="bottom: 0px;">
-                <a onclick="xDB.showCommentSpc('898af892330029dz', '2307586194', this );return false;" title="评论" class="item_replay" href="javascript:void(0)">
+              <div class="itemAttr">
+                <a onclick="Article.showComment(<%= article.id%>);return false;" title="评论" class="item_replay" href="#">
                   <em><%= article.replies_count %></em>
                 </a>
-                <!--<a onclick="xDB &amp;&amp; xDB.likeSpc('898af892330029dz',this,'2307586194','898af892330029dz');xblogLog &amp;&amp; xblogLog('B_0013_01_04_1614685840_心理学','1614685840');return false;" title="喜欢" class="item_like " from="qing" href="javascript:;">-->
-                  <!--<em>(6)</em>-->
-                <!--</a>-->
                 <%= likeable_tag(article) %>
               </div>
             </div>
@@ -45,6 +42,9 @@
                     <!--<span>评论</span></a>-->
                 <!--</div>-->
               <!--</div>-->
+              <div class="replies box">
+                <%= render :partial => "replies/reply", :collection => article.replies.high_likes.limit(5), :as => "reply" %>
+              </div>
               <div id="comment_0_898af892330029d1z" class="">
                 <%= form_for(Reply.new, :remote => true,:url => article_replies_path(article)) do |f| %>
                   <%= f.text_area :content,:class => "topic_editor span10", :rows => "4", :tabindex => "1" %>

@@ -23,5 +23,7 @@ class Reply
 
   validates_presence_of :content
 
+  scope :high_likes, desc(:likes_count, :_id)
+
 
 end

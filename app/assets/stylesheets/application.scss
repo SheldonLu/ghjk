@@ -79,7 +79,6 @@ $width: 1080px;
 
 a.label:hover { text-decoration: none; color:#FFF;}
 
-abbr[title] { border:0; cursor:default; }
 
 form {
   margin-bottom:0px;
@@ -112,7 +111,7 @@ form {
 #main h1 { font-size:14px; line-height:26px; font-weight:bold; text-align:right; color:#333; margin-bottom:10px; }
 
 .clearfix {
-  margin-bottom: 0px;
+  //margin-bottom: 18px;
   zoom: 1;
   &:before, &:after {
     display: table;
@@ -145,4 +144,5 @@ form {
   li { margin-bottom: 4px; }
 
 }
+abbr[title] { border:0; cursor:default; }
 

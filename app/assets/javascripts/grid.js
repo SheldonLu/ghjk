@@ -8,7 +8,7 @@ var getURL = 'http://localhost:3000/articles/hot'
 var options = {
   autoResize: true, // This will auto-update the layout when the browser window is resized.
   container: $('#tiles'), // Optional, used for some extra CSS styling
-  offset: 20, // Optional, the distance between grid items
+  offset: 20 // Optional, the distance between grid items
   // itemWidth: 400 // Optional, the width of a grid item
 };
 
@@ -71,6 +71,8 @@ function onLoadData(data) {
   // Apply layout.
   applyLayout();
   if(flag) {
+    $("abbr.timeago").timeago();
+//    $(".itemAttr .item_replay").live('click',Article.reply($(this).data("id")));
     $('.itemInfo .like').live({
        mouseenter: function(){
          $(this).addClass("like_hover");

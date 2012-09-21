@@ -36,12 +36,11 @@ class ArticlesController < ApplicationController
     # @articles = Article.by_week.high_replies
     # render :action => "index"
     @articles = Article.all.paginate(:page => params[:page],:per_page => 10)
-    p @articles
+    #@replies = @article.replies.high_likes.limit(6)
   end
 
   def index
     @articles = Article.all.paginate(:page => params[:page],:per_page => 10)
-    p @articles
   end
 
   def video
