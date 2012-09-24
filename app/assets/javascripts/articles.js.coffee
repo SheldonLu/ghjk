@@ -1,10 +1,6 @@
 window.Article =
   showComment : (id) ->
-    reply_Cmt = $("#article_"+id).find(".itemCmt")
-    if(reply_Cmt.css("display") == "none")
-      reply_Cmt.css("display","inline")
-    else
-      reply_Cmt.css("display","none")
+    $("#article_"+id).find(".itemCmt").toggle("normal")
 
 $ ->
 	$('#myTab a').click (e) ->
